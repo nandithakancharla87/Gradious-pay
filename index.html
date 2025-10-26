@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Gradious Pay</title>
+<link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+<div id="registerPage" class="card hidden">
+  <h2 style="text-align:center;">Register New Account</h2>
+  <input type="text" id="regUsername" placeholder="Choose Username" />
+  <input type="password" id="regPassword" placeholder="Choose Password" />
+  <button onclick="handleRegister()">Register</button>
+  <p id="registerMessage" class="message" style="color:red;"></p>
+  <p style="text-align:center;">Already have an account? <button class="link-btn" onclick="showLogin()">Login here</button></p>
+</div>
+
+<div id="loginPage" class="card">
+  <h2 style="text-align:center;">Gradious Pay Login</h2>
+  <input type="text" id="username" placeholder="Username" />
+  <input type="password" id="password" placeholder="Password" />
+  <button onclick="handleLogin()">Login</button>
+  <p id="loginMessage" class="message" style="color:red;"></p>
+  <p style="text-align:center;">Don't have an account? <button class="link-btn" onclick="showRegister()">Register here</button></p>
+</div>
+
+<div id="appPage" class="hidden">
+  <nav>
+    <h1>Gradious Pay</h1>
+    <div class="nav-links">
+      <a onclick="showPage('home')">Home</a>
+      <a onclick="showPage('send')">Send</a>
+      <a onclick="showPage('transactions')">Transactions</a>
+      <a onclick="showPage('profile')">Profile</a>
+      <a class="logout" onclick="logout()">Logout</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div id="home">
+      <h2>Dashboard</h2>
+      <p>Your current balance is: <strong>₹<span id="balance">5000</span></strong></p>
+    </div>
+
+    <div id="send" class="hidden">
+      <h2>Send Money</h2>
+      <input type="text" id="receiver" placeholder="Receiver UPI ID or Name" />
+      <input type="number" id="amount" placeholder="Amount in ₹" />
+      <button onclick="sendMoney()">Send</button>
+      <p id="sendMessage" class="message"></p>
+    </div>
+
+    <div id="transactions" class="hidden">
+      <h2>Transaction History</h2>
+      <div id="transactionList"></div>
+    </div>
+
+    <div id="profile" class="hidden">
+      <h2>User Profile</h2>
+      <p><strong>Username:</strong> <span id="profileName"></span></p>
+      <p><strong>UPI ID:</strong> <span id="profileUpi"></span></p>
+    </div>
+  </div>
+  <footer>
+    &copy; 2025 Gradious Pay. All rights reserved.
+  </footer>
+</div>
+<script src="index.js">
+</script>
+</body>
+</html>
